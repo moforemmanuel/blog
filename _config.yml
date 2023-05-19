@@ -1,7 +1,7 @@
 # Site
-name: 'Mediumish'
-title: 'Mediumish'
-description: 'Jekyll template, Medium styled, free for bloggers.'
+name: 'Better Code Blogs'
+title: 'Better Code Blogs'
+description: 'That one stop blog for all things tech'
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/logo.png'
 # baseurl: /mediumish-theme-jekyll
@@ -13,6 +13,14 @@ permalink: /:title/
 
 # Authors
 authors:
+  mofor:
+    name: Mofor Emmanuel
+    display_name: Mofor Emmanuel
+    avatar: 'assets/images/about/mofor-emmanuel.jpeg'
+    email: moforemmanuel1000@gmail.com
+    web: https://moforemmanuel.github.io
+    twitter: https://twitter.com/Mofor_Emmanuel_1
+    description: 'Author of Better Code Blogs, a platform where developers better their skills through blog posts on tech and related topics.'
   sal:
     name: Sal
     display_name: Sal
@@ -49,7 +57,7 @@ jekyll-archives:
 
 # Pagination
 paginate: 6
-paginate_path: /page:num/
+paginate_path: /pages/:num/
 
 # Other
 markdown: kramdown

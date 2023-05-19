@@ -38,3 +38,8 @@ Thumbs.db
 
 changelog.md
 
+# ruby deps and gems installed
+.bundle
+
+# bundle build
+_site
