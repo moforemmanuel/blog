@@ -1,0 +1,9 @@
+- name: Blog
+  link: /index.html
+  permalink: /
+- name: About
+  link: /about.html
+  permalink: /about
+- name: Contributors
+  link: /contributors.html
+  permalink: /contributors
