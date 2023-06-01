@@ -1,7 +1,8 @@
 # Site
 name: 'Better Code Blogs'
 title: 'Better Code Blogs'
-description: 'That one stop blog for all things tech.'
+# description: 'That one stop blog for all things tech.'
+description: 'Write Better Code Blocks With Better Code Blogs'
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
 # baseurl: /mediumish-theme-jekyll
@@ -16,7 +17,7 @@ authors:
   mofor:
     name: Mofor Emmanuel
     display_name: Mofor Emmanuel
-    avatar: 'assets/images/about/mofor-emmanuel.jpeg'
+    avatar: 'assets/images/about/manu.jpeg'
     email: moforemmanuel1000@gmail.com
     web: https://moforemmanuel.github.io
     twitter: https://twitter.com/Mofor_Emmanuel_1
