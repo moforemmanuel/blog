@@ -521,4 +521,4 @@ Not leaving out CSP, and all other mentioned and unmentioned techniques.
 I hope you saw the vitality of security, and how little things we overlook can cause havoc.
 If you haven't experienced any vulnerability attacks yet, probably a hacker hasn't found that loophole. Keep counting your luck. Reach out to a Pentester and have him do his thing, you'll be in awe if you have been overlooking security.
 
-Well, that it guys, hope you had a good time.
+Well, that's it guys, hope you had a good time.
