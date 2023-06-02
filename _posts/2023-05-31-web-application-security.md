@@ -366,14 +366,14 @@ DEALLOCATE PREPARE q;
 ```
 
 In this prepared statement, we are querying the MySQL database for students (we
-want name and matricule returned) that have a Cumulative GPA >= ?.
+want `name` and `matricule` returned) that have a Cumulative GPA >= ?.
 First, we use the statement PREPARE to store our query under the name q. This query
-will be compiled and ready for use. Next, we set a variable @gpa to 3.6.
-Then we EXCECUTE the query providing @gpa to fill the ? placeholder/bind variable.
-Finally, we use DEALLOCATE on q to remove it from memory so its
+will be compiled and ready for use. Next, we set a variable `@gpa` to 3.6.
+Then we `EXCECUTE` the query providing `@gpa` to fill the ? placeholder/bind variable.
+Finally, we use `DEALLOCATE` on `q` to remove it from memory so its
 namespace can be used for other things.
-In this simple prepared statement, q is compiled prior to being executed with @gpa.
-Even if @gpa was set equal to:
+In this simple prepared statement, `q` is compiled prior to being executed with `@gpa`.
+Even if `@gpa` was set equal to:
 
 ```sql
 3; UPDATE users WHERE id = 123 SET balance = 10000;
