@@ -222,7 +222,11 @@ Let’s evaluate some CSP configurations that aid in mitigating XSS risk.
 
 CSP allows you to specifically whitelist URLs from which dynamic scripts can be
 loaded. This is known as script-src in your CSP. A simple script-src looks like
-this: `Content-Security-Policy: script-src "self" https://whitelist.com.`
+this:
+
+```javascript
+Content-Security-Policy: script-src "self" https://whitelist.com.
+```
 
 With such a CSP configuration, attempting to load a script from `https://hackers-server.com` would not be successful, and the browser would throw a CSP violation
 
@@ -371,7 +375,9 @@ namespace can be used for other things.
 In this simple prepared statement, q is compiled prior to being executed with @gpa.
 Even if @gpa was set equal to:
 
-> `3; UPDATE users WHERE id = 123 SET balance = 10000`
+```sql
+3; UPDATE users WHERE id = 123 SET balance = 10000;
+```
 
 the additional query would not fire as it would not be compiled by the data‐base. Awesome huh?
 
