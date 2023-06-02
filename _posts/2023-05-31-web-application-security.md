@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Web Application Security (WebAppSec)"
+title:  "Web Application Security"
 author: mofor
 categories: [ web development, security ]
 image: assets/images/posts/2023-05-31-web-application-security/1.jpg
@@ -8,6 +8,7 @@ featured: true
 beforetoc: "Are web applications nowadays really safe to use?"
 toc: true
 ---
+Web application security is a critical aspect of ensuring the safety and integrity of web-based applications. It involves protecting web applications from various vulnerabilities and threats that could lead to unauthorized access, data breaches, and other malicious activities.
 
 ## The Great Twitter Worm of 2009
 
@@ -23,9 +24,10 @@ Twitter's response was swift but challenging. Their security team worked diligen
 
 ## Introduction
 
-Web application security is a critical aspect of ensuring the safety and integrity of web-based applications. It involves protecting web applications from various vulnerabilities and threats that could lead to unauthorized access, data breaches, and other malicious activities. This is probably one of the concepts developers overlook, in some cases because they use tools that handled some of these vulnerabilities under the hood.
+<!-- Web application security is a critical aspect of ensuring the safety and integrity of web-based applications. It involves protecting web applications from various vulnerabilities and threats that could lead to unauthorized access, data breaches, and other malicious activities. -->
+This is probably one of the concepts developers overlook, in some cases because they use tools that handled some of these vulnerabilities under the hood.
 
-![Web Application Vulnerability](/assets/images/posts/2023-05-31-web-application-security/reported-web-vulnerabilities.png)
+![Web Application Vulnerability](assets/images/posts/2023-05-31-web-application-security/reported-web-vulnerabilities.png)
 <!-- <img src='/assets/images/posts/2023-05-31-web-application-security/reported-web-vulnerabilities.png' alt='Web Application Vulnerability' /> -->
 
 As seen in our not so very recent vulnerability statistics, WebAppSec has been one of those fields worth investing time into. Though native applications are slowly gaining attention, the web has been around for long, and is not going anywhere any time soon.
