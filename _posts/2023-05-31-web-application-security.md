@@ -5,6 +5,7 @@ author: mofor
 categories: [ web development, security ]
 image: assets/images/posts/2023-05-31-web-application-security/1.jpg
 featured: true
+rating: 4.5
 beforetoc: "Are web applications nowadays really safe to use?"
 toc: true
 ---
