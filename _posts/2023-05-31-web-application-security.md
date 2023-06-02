@@ -88,7 +88,7 @@ wrapper.appendChild(div);
 ```
 
 Because the text is appended literally to the DOM, it is interpreted as DOM markup
-rather than text. Our customer support request included a <strong></strong> tag in
+rather than text. Our customer support request included a `<strong></strong>` tag in
 this case.
 In a more malicious case, we could have caused a lot of havoc using the same vulnerability. Script tags are the most popular way to take advantage of XSS vulnerabilities,
 but there are many ways to take advantage of such a bug.
@@ -157,7 +157,7 @@ world of XSS nonetheless.
 #### Defending Against XSS Attacks - Best Practices
 
 There is one major rule you can implement in your development team in order to
-dramatically mitigate the odds of running into XSS vulnerabilities: 
+dramatically mitigate the odds of running into XSS vulnerabilities:
 > Don’t allow any user-supplied data to be passed into the DOM—except as strings.
 
 Such a rule is not applicable to all applications, as many applications have features
@@ -224,7 +224,7 @@ CSP allows you to specifically whitelist URLs from which dynamic scripts can be
 loaded. This is known as script-src in your CSP. A simple script-src looks like
 this: `Content-Security-Policy: script-src "self" https://whitelist.com.`
 
-With such a CSP configuration, attempting to load a script from https://hackers-server.com would not be successful, and the browser would throw a CSP violation
+With such a CSP configuration, attempting to load a script from `https://hackers-server.com` would not be successful, and the browser would throw a CSP violation
 
 There are other ways to mitigate this vulnerability, but for the sake of simplicity, we'll have those.
 
@@ -426,7 +426,7 @@ Often, Insecure Session Management leads to CSFR.
 
 CSRF occurs when an attacker tricks a victim into performing unintended actions on a web application on which the victim is authenticated. This can happen if the web application relies solely on session cookies for authentication and does not implement appropriate CSRF protection mechanisms.
 
-#### CSRF and Insecure Session Management:
+#### CSRF and Insecure Session Management
 
 Insecure session management can contribute to CSRF attacks because the attacker can exploit the victim's active session to perform unauthorized actions. For example, if a web application uses only session cookies for authentication and does not validate the origin of requests, an attacker can trick the victim into unknowingly sending authenticated requests to the application, leading to potential data manipulation, unauthorized transactions, or other malicious activities.
 
@@ -451,7 +451,7 @@ In the above example, there is no CSRF protection implemented. The server accept
 
 ## Secure coding techniques
 
-- ### Input Validation
+### Input Validation
 
   Validate and sanitize all user inputs to prevent vulnerabilities like XSS and SQL injection.
   You can use validation libraries like Yup Resolver, Bootstrap validator, any validation plugin/library or Regular Expressions to enforce rules for client-side validation, making sure no malicious input can be sent to the server.
@@ -482,24 +482,23 @@ In the above example, there is no CSRF protection implemented. The server accept
   With this validation in check, a user is not allowed to enter `anonymous@gmail.com; DROP TABLE users;`
   Imagine using this, with an ORM to add an extra layer of security, top-notch.
 
-- ### Secure Session Handling
+### Secure Session Handling
 
-  - Setting Session Expiration
+- Setting Session Expiration
 
-  - Session ID Generation
+- Session ID Generation
 
-  - Secure Session Storage
+- Secure Session Storage
 
-  - **CSRF Token Protection**: Generate a unique CSRF token for each session and include it in a hidden form field or a custom HTTP header. On the server side, validate the token for each sensitive operation to ensure that the request is legitimate.
+- **CSRF Token Protection**: Generate a unique CSRF token for each session and include it in a hidden form field or a custom HTTP header. On the server side, validate the token for each sensitive operation to ensure that the request is legitimate.
 
-  - **Same-Site Cookie Attribute**: Set the SameSite attribute for session cookies to Strict or Lax to limit cookie usage to the same site origin, preventing cross-site request forgery.
+- **Same-Site Cookie Attribute**: Set the SameSite attribute for session cookies to Strict or Lax to limit cookie usage to the same site origin, preventing cross-site request forgery.
 
-  - **Double-Submit Cookie**: Create a separate CSRF cookie that contains a random value, and compare it with a corresponding value submitted in the request body or headers. If they do not match, the request can be rejected.
+- **Double-Submit Cookie**: Create a separate CSRF cookie that contains a random value, and compare it with a corresponding value submitted in the request body or headers. If they do not match, the request can be rejected.
 
-  - **Origin Validation**: Verify the origin or referrer header of incoming requests to ensure that they match the expected domain. Reject requests coming from unexpected or untrusted origins.
+- **Origin Validation**: Verify the origin or referrer header of incoming requests to ensure that they match the expected domain. Reject requests coming from unexpected or untrusted origins.
 
-  - **Unique and Unpredictable Actions**: Ensure that sensitive actions, such as updating user information or making transactions, have unique and unpredictable parameters or tokens associated with them. This adds an extra layer of protection against CSRF attacks.
-
+- **Unique and Unpredictable Actions**: Ensure that sensitive actions, such as updating user information or making transactions, have unique and unpredictable parameters or tokens associated with them. This adds an extra layer of protection against CSRF attacks.
 
 <!-- - **Input Validation**: Validate and sanitize all user inputs to prevent vulnerabilities like XSS and SQL injection. -->
 
