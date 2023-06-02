@@ -228,7 +228,7 @@ With such a CSP configuration, attempting to load a script from https://hackers-
 
 There are other ways to mitigate this vulnerability, but for the sake of simplicity, we'll have those.
 
-- ### SQL Injection (SQLi)
+### SQL Injection (SQLi)
 
 SQL injection is the most classically referenced form of injection.
 An SQL string is escaped in an HTTP payload, leading to custom SQL queries being
@@ -375,7 +375,7 @@ Even if @gpa was set equal to:
 
 the additional query would not fire as it would not be compiled by the data‐base. Awesome huh?
 
-- ### Insecure Session Management
+### Insecure Session Management
 
 A student once requested me to review some code, and upon landing on his login route, found this:
 
@@ -387,7 +387,7 @@ app.post('/login', (req, res) => {
 });
 ```
 
-I mean, it's funny, really funny. No argument there.
+I mean, pure ingenuity. No argument there.
 
 Insecure session management is a critical vulnerability in web application security. It refers to the improper handling of user sessions, which can result in unauthorized access, session hijacking, and other security breaches. Session management involves managing user sessions, which are temporary interactions between a user and a web application during their visit.
 
@@ -422,7 +422,7 @@ The list goes on and on, we see the developer leaving out crucial properties lik
 
 Often, Insecure Session Management leads to CSFR.
 
-- ### Cross Site Forgery Request (CSFR)
+### Cross Site Forgery Request (CSFR)
 
 CSRF occurs when an attacker tricks a victim into performing unintended actions on a web application on which the victim is authenticated. This can happen if the web application relies solely on session cookies for authentication and does not implement appropriate CSRF protection mechanisms.
 
