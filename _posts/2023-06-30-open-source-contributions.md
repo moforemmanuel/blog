@@ -32,7 +32,7 @@ Open-source contributions play a crucial role in the software development ecosys
 
 Here's a statistics of Big tech companies contributions:
 
-![Web Application Vulnerability]({{site.baseurl}}/assets/images/posts/2023-06-30-open-source-contributions/big-tech-companies-contributions-stats.jpeg)
+![Open-Source Contributions of Big Tech Companies]({{site.baseurl}}/assets/images/posts/2023-06-30-open-source-contributions/big-tech-companies-contributions-stats.jpeg)
 
 ### The importance and benefits of open-source contributions
 
