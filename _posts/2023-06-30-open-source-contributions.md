@@ -3,7 +3,7 @@ layout: post
 title: 'Open-Source Contributions'
 author: mofor
 categories: [open-source]
-image: assets/images/posts/2023-06-30-open-source-contributions/open-source-3.jpeg
+image: assets/images/posts/2023-06-30-open-source-contributions/open-source-image.jpeg
 featured: true
 rating: 4.5
 # beforetoc: 'Are you ready to unlock the transformative power of open source contributions and reshape your coding journey?'
@@ -28,7 +28,11 @@ As the journey continued, Alex realized that open source contributions were not 
 
 ## Introduction
 
-Open-source contributions play a crucial role in the software development ecosystem, offering numerous benefits to developers, communities, and the industry as a whole. Open-source software refers to projects that are developed collaboratively, allowing anyone to view, use, modify, and distribute the source code. 
+Open-source contributions play a crucial role in the software development ecosystem, offering numerous benefits to developers, communities, and the industry as a whole. Open-source software refers to projects that are developed collaboratively, allowing anyone to view, use, modify, and distribute the source code.
+
+Here's a statistics of Big tech companies contributions:
+
+![Web Application Vulnerability]({{site.baseurl}}/assets/images/posts/2023-06-30-open-source-contributions/big-tech-companies-contributions-stats.jpeg)
 
 ### The importance and benefits of open-source contributions
 
