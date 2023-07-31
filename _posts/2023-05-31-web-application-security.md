@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Web Application Security"
+description: Learn how to fortify your web applications against cyber threats with this comprehensive guide on web application security. Discover essential security tips, best practices, and real-life examples to protect your applications from hackers and data breaches.
 author: mofor
 categories: [ web development, security ]
 image: assets/images/posts/2023-05-31-web-application-security/1.jpg
@@ -9,6 +10,11 @@ rating: 4
 beforetoc: "Are web applications nowadays really safe to use?"
 toc: true
 ---
+
+<div class="d-flex align-items-center justify-content-center mb-3">
+  <img src="{{site.baseurl}}/assets/images/posts/2023-05-31-web-application-security/web-app-sec.png" />
+</div>
+
 Web application security is a critical aspect of ensuring the safety and integrity of web-based applications. It involves protecting web applications from various vulnerabilities and threats that could lead to unauthorized access, data breaches, and other malicious activities.
 
 ## The Great Twitter Worm of 2009
@@ -49,7 +55,7 @@ In as much as there are categorical variations; Stored, Reflected and DOM-based 
 
 #### XSS Discovery and Exploitation
 
-Mimicking the Twitter Worm, suppose we have our social networking platform, where users can view profiles, make posts, and comments. Generally, commenting on our platform doesn't support text or markup formatting, but then you come across this awesome post of say a female model, and want to leave a comment, but also you don't want to be casual like everyone else. So for the tech-savvy person you are, you go ahead to comment this:
+Mimicking the Twitter Worm, suppose we have our social networking platform, where users can view profiles, make posts, and comments. Generally, commenting on our platform doesn't support text or markup formatting, but then you come across this awesome post of say a model, and want to leave a comment, but also you don't want to be casual like everyone else. So for the tech-savvy person you are, you go ahead to comment this:
 
 ```html
 You truly are an epitome of <strong>beauty</strong>
