@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Web Application Security"
-description: Learn how to fortify your web applications against cyber threats with this comprehensive guide on web application security. Discover essential security tips, best practices, and real-life examples to protect your applications from hackers and data breaches.
+description: "Learn how to fortify your web applications against cyber threats with this comprehensive guide on web application security. Discover essential security tips, best practices, and real-life examples to protect your applications from hackers and data breaches."
 author: mofor
 categories: [ web development, security ]
 image: assets/images/posts/2023-05-31-web-application-security/1.jpg
