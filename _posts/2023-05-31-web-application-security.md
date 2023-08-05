@@ -11,11 +11,11 @@ beforetoc: "Are web applications nowadays really safe to use?"
 toc: true
 ---
 
+Web application security is a critical aspect of ensuring the safety and integrity of web-based applications. It involves protecting web applications from various vulnerabilities and threats that could lead to unauthorized access, data breaches, and other malicious activities.
+
 <div class="d-flex align-items-center justify-content-center mb-3">
   <img src="{{site.baseurl}}/assets/images/posts/2023-05-31-web-application-security/web-app-sec.png" />
 </div>
-
-Web application security is a critical aspect of ensuring the safety and integrity of web-based applications. It involves protecting web applications from various vulnerabilities and threats that could lead to unauthorized access, data breaches, and other malicious activities.
 
 ## The Great Twitter Worm of 2009
 
